@@ -1,0 +1,465 @@
+/* Définition des polices personnalisées */
+/* cette font n'est pas utilisé
+@font-face
+{
+    font-family: 'BallparkWeiner';
+    src: url('polices/ballpark.eot');
+    src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'),
+         url('polices/ballpark.woff') format('woff'),
+         url('polices/ballpark.ttf') format('truetype'),
+         url('polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'Dayrom';
+    src: url('polices/dayrom.eot');
+    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('polices/dayrom.woff') format('woff'),
+         url('polices/dayrom.ttf') format('truetype'),
+         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+/* polices usuel utilisée
+'Times New Roman' titre
+'Comic Sans MS'   signature
+'Trebuchet MS'    tout le reste
+*/
+
+/* Eléments principaux de la page */
+
+body {
+    background: url('../Images/fond_jaune.png');
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818;
+}
+
+#bloc_page {
+    width: 900px;
+    margin: auto;
+}
+
+section h1,
+footer h1,
+nav a {
+    font-family: 'Times New Roman', serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* Header */
+
+header {
+    background: url('../Images/separateur.png') repeat-x bottom;
+}
+
+#titre_principal {
+    display: inline-block;
+}
+
+header h1 {
+    display: inline-block;
+    font-family: 'Times New Roman', serif;
+    font-size: 2.5em;
+    font-weight: normal;
+    position: absolute;
+    top: 10px;
+    margin-left: 15px;
+}
+
+#logo,
+header h1 {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+
+/* Navigation */
+
+nav {
+    display: inline-block;
+    width: 740px;
+    text-align: right;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #760001;
+    border-bottom: 3px solid #760001;
+}
+
+/* Bannière page accueil*/
+/* La banniere prends une ou deux photos (vignette) 
+   la hauteur des photos doit etre de 219px
+   la largeur disponible est de 900px le mieux serais de faire une seule photo de largeur 900 a 950px.
+   en attandant c'est fait avec deux photos une cadré a droite l'autre a gauche.
+*/
+#banniere_image {
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('../Images/photo_rallye_2007.JPG') no-repeat left, url('../Images/photo_mt_st_michel.JPG') no-repeat right, scroll;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+#banniere_description {
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    width: 99.5%;
+    height: 33px;
+    padding-top: 15px;
+    padding-left: 4px;
+    background-color: rgb(24, 24, 24);
+    /* Pour les anciens navigateurs */
+    background-color: rgba(24, 24, 24, 0.2);
+    color: white;
+    font-size: 0.8em;
+
+}
+
+.bouton_rouge {
+    display: inline-block;
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background: url('../Images/fond_degraderouge.png') repeat-x;
+    border: 1px solid #760001;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 3px 8px 0px 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.bouton_rouge img {
+    border: 0;
+}
+
+/* Bannière page Albums*/
+/* La banniere prends une ou deux photos (vignette) 
+   la hauteur des photos doit etre de 219px
+   la largeur disponible est de 900px le mieux serais de faire une seule photo de largeur 900 a 950px.
+   en attandant c'est fait avec deux photos une cadré a droite l'autre a gauche.
+*/
+#banniere_Choix {
+    margin-top: 15px;
+    height: 60px;
+    border-radius: 5px;
+    background: url('../Images/tn_motos.jpg') repeat-x left;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 15px;
+    padding-top: 7px;
+    padding-left: 5px;
+    color: white;
+    font-size: 1.5em;
+    overflow-x: auto;
+}
+
+#banniere_Choix a {
+    background-color: rgb(24, 24, 24);
+    /* Pour les anciens navigateurs */
+    background-color: rgba(24, 24, 24, 0.5);
+    border-radius: 5px;
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-style: italic;
+    color: white;
+    font-size: 1.2em;
+}
+
+#banniere_Choix a:hover {
+    color: #DDD;
+    text-decoration: underline;
+    /*border-bottom: 3px solid #760001;*/
+}
+#header_sans_banniere p{
+    text-align: center;
+}
+
+/* Corps */
+article,
+aside {
+    display: inline-block;
+    vertical-align: top;
+    text-align: justify;
+    margin-bottom: 15px;
+    min-height: 100px;
+}
+
+article {
+    width: 625px;
+    margin-right: 15px;
+}
+
+.ico_categorie {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+article p {
+    font-size: 0.8em;
+}
+.actualite_txt {
+	text-align: center;	
+}
+.actualite_signature {
+	text-align: right;	
+}
+
+.info_signature {
+    margin-top: 20px;
+    font-family: 'Comic Sans MS', serif;
+    font-style: italic;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+aside {
+    position: relative;
+    width: 235px;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+}
+
+aside img {
+    margin-right: 5px;
+}
+
+#Titre_Album {
+    display: block;
+	text-align: center;
+	width: 100%;
+}
+#Exit_Album {
+    display: block;
+	text-align: center;
+	width: 100%;
+}
+#Exit_Album img{
+    width: 10%;
+}
+#Exit_Album a{
+    width: 10%;
+}
+
+#Affichage_Album
+{
+	display: flex;
+	flex-wrap : wrap ;
+	align-items: center;
+	justify-content : space-between;
+	align-content : space-between;
+    width: 100%;
+}
+.Vignette_Album{
+	display: block;
+	align-items: center;
+    width: 32%;
+	margin : auto;
+	text-align: center;
+}
+.Vignette_Album>a{
+	width: 98%;
+}
+
+.Vignette_Album img{
+	width: 98%;
+}
+
+#Affichage_Album>img{
+	width: 50%;
+}
+
+#Titre_Photo{
+    display: block;
+	text-align: center;
+	width: 100%;
+}
+#Titre_Photo>a {
+    width: 8%;
+}
+#Titre_Photo img {
+    width: 8%;
+}
+
+#Affichage_Photo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#Affichage_Photo>a {
+    width: 8%;
+}
+
+#Affichage_Photo img {
+    width: 84%;
+}
+#Affichage_Photo>img {
+    flex: 1;
+}
+
+#Liste_Albums {
+    display: block;
+    align-items: center;
+    width: 100%;
+}
+
+#Titre_Lien_Album {
+    display: block;
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+
+#Liste_Lien_Album {
+	display: flex;
+	flex-wrap : wrap ;
+	align-items: center;
+	justify-content : space-between;
+	align-content : space-between;
+    width: 100%;
+}
+.Lien_Album {
+	display: block;
+	align-items: center;
+    width: 32%;
+	margin : auto;
+	text-align: center;
+
+	
+}
+.Lien_Album img {
+    width: 98%;
+}
+.Lien_Album a {
+    width: 98%;
+}
+
+
+/* Footer */
+
+footer {
+    background: url('../Images/separateur.png') repeat-x top, url('../Images/ombre.png') repeat-x top;
+    margin-top: 5px;
+    margin-Bottom: 0px;
+}
+
+footer p {
+    font-size: 0.8em;
+    padding-Bottom: 0px;
+    margin-top: 0px;
+    margin-Bottom: 0px;
+}
+
+footer h1 {
+    font-size: 1.1em;
+}
+
+#Adresse {
+    /*display: inline-block;*/
+    /*vertical-align: top;	*/
+    text-align: center;
+    padding-top: 5px;
+}
+
+#WebMaster {
+    /*display: inline-block;*/
+    /*vertical-align: top;	*/
+    text-align: center;
+    padding-top: 0px;
+}
+
+
+/* Définition des classes pour centrer textes et images */
+.txt_Centrer {
+    text-align: center;
+}
+
+img.img_Centrer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Définition des classes pour aligner a droite textes et images */
+img.img_Droite {
+    float: right;
+}
+
+.txt_Droite {
+    text-align: right;
+}
+
+/* Définition des classes pour aligner a droite textes et images */
+img.img_Gauche {
+    float: left;
+}
+
+.txt_Gauche {
+    text-align: left;
+}
+
+
+/* Correctifs pour les vieilles versions d'Internet Explorer */
+
+/* Pour activer un positionnement type inline-block sur les vieilles versions d'IE */
+
+.old_ie #titre_principal,
+.old_ie #logo,
+.old_ie header h1,
+.old_ie nav,
+.old_ie nav li,
+.old_ie .bouton_rouge,
+.old_ie article,
+.old_ie aside,
+.old_ie #tweet,
+.old_ie #mes_photos,
+.old_ie #mes_amis,
+.old_ie #mes_amis ul {
+    display: inline;
+    zoom: 1;
+}
+
+/* Quelques ajustements pour les vieilles versions d'IE */
+
+.old_ie section h1,
+.ie8 section h1 {
+    font-size: 1.1em;
+}
+
+.old_ie footer div,
+.ie8 footer div {
+    margin-top: 30px;
+    background: url('../Images/separateur.png') repeat-x top;
+}

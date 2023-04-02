@@ -1,0 +1,13 @@
+<IfDefine !Free>
+AuthType Basic
+AuthName "Zone Protegee"
+AuthBasicProvider file
+require valid-user
+AuthUserFile "D:/www/motoclub/Annexes_Local/.htpasswd"
+</IfDefine>
+<IfDefine Free>
+PerlSetVar AuthFile /Annexes_Free/.htpasswd
+AuthName "Zone Protegee"
+AuthType Basic
+require valid-user
+</IfDefine>

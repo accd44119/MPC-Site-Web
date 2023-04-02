@@ -1,0 +1,6 @@
+<IfDefine !Free>
+require user Admin_MPC
+</IfDefine>
+<IfDefine Free>
+require user Admin_MPC
+</IfDefine>
