@@ -432,17 +432,15 @@ img.img_Gauche {
 
 /* definition pour le formulaire de telechargemet */
 .wrapper{
-  max-width: 500px;
-  background: #fff;
+  width: 100%;
   border-radius: 7px;
   padding: 20px 25px 15px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 form{
   margin: 20px 0 27px;
 }
 form input{
-  width: 100%;
+  width: 90%;
   height: 60px;
   outline: none;
   padding: 0 17px;
@@ -458,7 +456,7 @@ form input:focus{
   box-shadow: 0 3px 6px rgba(0,0,0,0.13);
 }
 form button{
-  width: 100%;
+  width: 94%;
   border: none;
   opacity: 0.7;
   outline: none;

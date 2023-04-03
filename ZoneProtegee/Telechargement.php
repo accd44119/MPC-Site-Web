@@ -20,18 +20,15 @@
 
 	<section>
 		<div class="wrapper">
-		  <header>
-			<h1>File Downloader</h1>
-			<p>Paste url of image, video, or pdf to download. This tool is made with vanilla javascript.</p>
-		  </header>
+			<h2>Telechargement d'un fichier</h2>
+			<p>Collé l'url du fichier a télécharger.</p>
 		  <form action="#">
 			<input type="url" placeholder="Paste file url" required>
 			<button>Download File</button>
 		  </form>
 		</div>
 
-    <script src="DownloadFile.js"></script>
-
+		<script src="DownloadFile.js"></script>
 
 	</section>
 
