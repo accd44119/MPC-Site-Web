@@ -35,35 +35,36 @@
 			$Album_No_Space = urlencode($Album);
 			//$TelechargerAlbum = $Protect_rep . 'Telechargement.php?Annee='. $YearDisplay .'&Album='. $Album_No_Space  ;
 			$display_Exit_Photo = $ZonePublic_rep . 'albums.php?Annee=' . $YearDisplay  ;	
-			$Url = $ZonePublic_rep . $YearDisplay . '/' . $Album . '/photos';
 			echo '<div id="Titre_Telechargement">';
 			echo '<h2> Telechargement album Année '. $YearDisplay . ' ' . $Album . '. </h2>';
-			//echo '<a href="'. $TelechargerAlbum .'"> TELECHARGEMENT Album    </a>';
-			//echo '</div>';
-			//echo '<div id="Exit_Telechargement">';
-			echo '<a href="'. $display_Exit_Photo .'">      <img src="' . $image_rep .'fleche-retour-rouge.png" title="Afficher album" alt="Afficher album"></a>';
+			$RepertoirePhotos = $Albums_rep . $YearDisplay . '/' . $Album . '/photos';
+			$FichierListePhotos = $RepertoirePhotos .'/ListePhotos.txt';
+			$Url = 'http://' . $_SERVER['HTTP_HOST']. substr($FichierListePhotos,2);
+			// Création du fichier texte de la liste de la liste des photos du repertoire photos si il n'existe pas 
+			if (file_exists($FichierListePhotos)){
+				echo "<h4> La liste photos existe.</h4>";
+			}
+			else {
+				echo "<h4> Création de la liste photos.</h4>";
+				// creer fichier $FichierListePhotos
+				$ListePhotos_f = fopen($FichierListePhotos, 'w');
+				$ListePhotos = scandir($RepertoirePhotos);
+				foreach ($ListePhotos as $entryPhotos){
+					if ($entryPhotos != "." && $entryPhotos != "..") {
+						fwrite($ListePhotos_f,($entryPhotos."\r\n"));
+					}
+				}
+				fclose($ListePhotos_f); 
+			}
 			echo '</div>';
 			echo '<div id="Telechargement" class="wrapper">';
-			// Recuperation de la liste des photos du repertoire photos
-			//$ListePhotos = scandir($Albums_rep . $YearDisplay . '/' . $Album . '/photos');
-			//$Num_Photo=0;
-			//foreach ($ListePhotos as $entryPhotos){
-				//if ($entryPhotos != "." && $entryPhotos != "..") {
-					//$vignette = $Albums_rep . $YearDisplay . '/'. $Album . '/vignettes/tn_' . $entryPhotos;
-					//$photos   = $YearDisplay . '/'. $Album . '/photos/' . $entryPhotos;
-					//$display_Photo = $ZonePublic_rep . 'display_photos.php?Photo='. $Num_Photo .'&Annee='. $YearDisplay .'&Album='. $Album_No_Space  ;
-					//echo '<div class="Vignette_Album">';
-					//echo '<a href="'. $display_Photo .'" class="Choix_Photos"> <img src="' . $vignette .'" alt="'. $vignette. '"> </a>';
-					//echo '</div>';
-					//}					
-					//$Num_Photo++;				
-				//}			  			
 			echo "<h3>Telechargement de l'album</h3>";
 			echo '<form action="#">';
 			echo '	<input type="url" value = "' . $Url. '" placeholder="Paste file url" required>';
 			echo '	<button>Téléchargement Album</button>';
 			//echo '	<button>Abandon</button>';
 			echo '</form>';
+			echo '<a href="'. $display_Exit_Photo .'">      <img src="' . $image_rep .'fleche-retour-rouge.png" title="Afficher album" alt="Afficher album"></a>';
 			echo '</div>';				
 		?>			  			
 
