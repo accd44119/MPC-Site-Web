@@ -7,35 +7,47 @@ downloadBtn.addEventListener("click", e => {
     console.log("Event click button listener");
     downloadBtn.innerText = "Préparation liste photos...";
     fetchDirectory(fileInput.value);
-    //fetchFile(fileInput.value);
+    //fetchFile(fileInput.value,"fichier texte");
 });
 
 function fetchDirectory(url) {
     console.log("fetchDirectory url=",url);
-    fetch(url).then(res => res.text()).then( texte => {
-        console.log("fetch ok reponse text = ", texte);
-        downloadBtn.innerText = "Création liste photos Album...";
-    })
+    fetch(url).then(res => res.text()).then( ListePhotosTexte => {
+		console.log("fetchDirectory fetch ok. Reponse ListePhotosTexte = ", ListePhotosTexte);
+		downloadBtn.innerText = "Création de la liste des photos de l'Album...";
+		const ListePhotoArray = ListePhotosTexte.split("\r\n");
+		let NomFichierTxt = ListePhotoArray.shift(); // Supression du nom du fichier txt de la tete de la liste
+		let Vide = ListePhotoArray.pop(); // supression du dernier element de la liste (vide);
+		let UrlRepPhotos = url.replace(NomFichierTxt,'');
+		console.log("fetchDirectory UrlRepPhotos = ", UrlRepPhotos);
+		for (let Photo of ListePhotoArray){
+			let UrlPhoto = UrlRepPhotos + Photo;
+			console.log("fetchDirectory ListePhotoArray = ", Photo);
+			fetchFile(UrlPhoto,Photo);
+		}
+		downloadBtn.innerText = "Téléchargement effectué.";
+
+   })
     .catch(() => {
-        alert("Erreur fetch liste photos Album!");
-        downloadBtn.innerText = "Téléchargement Album";
+        alert("Erreur fetch fichier txt liste des photos Album!");
+        downloadBtn.innerText = "Erreur lors de la création de la liste de Téléchargement de l'Album. RECOMMENCER";
     });
 }
 
-function fetchFile(url) {
-    console.log("fetchFile url=",url);
-    fetch(url).then(res => res.blob()).then(file => {
+function fetchFile(urlFile,PhotoFile) {
+    console.log("fetchFile urlFile=",urlFile);
+    fetch(urlFile).then(res => res.blob()).then(file => {
         let tempUrl = URL.createObjectURL(file);
         const aTag = document.createElement("a");
         aTag.href = tempUrl;
-        aTag.download = url.replace(/^.*[\\\/]/, '');
+        aTag.download = urlFile.replace(/^.*[\\\/]/, '');
         document.body.appendChild(aTag);
         aTag.click();
-        downloadBtn.innerText = "Téléchargement Photos....";
+        downloadBtn.innerText = "Téléchargement Photo " + PhotoFile + " ...";
         URL.revokeObjectURL(tempUrl);
         aTag.remove();
     }).catch(() => {
-        alert("Failed to download file!");
-        downloadBtn.innerText = "Télécharger Album";
+        alert("Erreur lors du téléchargement des photos!");
+        downloadBtn.innerText = "Erreur pendant le téléchargement de l'Album. RECOMMENCER!";
     });
 }
