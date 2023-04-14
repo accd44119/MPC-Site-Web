@@ -10,6 +10,7 @@
 	$Annexes_Free_rep = $Level_rep . 'Annexes_Free/';
 	$Annexes_Local_rep = $Level_rep . 'Annexes_Local/';
 	$Upload_rep= $Level_rep . 'UploadedFiles/';
+	$Scripts_rep =  $Level_rep . 'Scripts/';
 	$actualites = $Level_rep . 'Textes/actualites.txt';
 	$infos_visiteurs = $Level_rep . 'Textes/infos_visiteurs.txt';
 	$planing_balades = $Level_rep . 'Textes/planing_balades.txt';

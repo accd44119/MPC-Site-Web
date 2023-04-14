@@ -22,7 +22,7 @@ function fetchDirectory(url) {
 		console.log("fetchDirectory UrlRepPhotos = ", UrlRepPhotos);
 		for (let Photo of ListePhotoArray){
 			let UrlPhoto = UrlRepPhotos + Photo;
-			console.log("fetchDirectory ListePhotoArray = ", Photo);
+			console.log("fetchDirectory UrlPhoto = ", UrlPhoto);
 			fetchFile(UrlPhoto,Photo);
 		}
 		downloadBtn.innerText = "Téléchargement effectué.";
@@ -36,14 +36,17 @@ function fetchDirectory(url) {
 
 function fetchFile(urlFile,PhotoFile) {
     console.log("fetchFile urlFile=",urlFile);
-    fetch(urlFile).then(res => res.blob()).then(file => {
+    console.log("fetchFile PhotoFile=",PhotoFile);
+     fetch(urlFile).then(res => res.blob()).then(file => {
         let tempUrl = URL.createObjectURL(file);
         const aTag = document.createElement("a");
         aTag.href = tempUrl;
-        aTag.download = urlFile.replace(/^.*[\\\/]/, '');
+		DownloadFile = urlFile.replace(/^.*[\\\/]/, '');
+		console.log("fetchFile DownloadFile=",DownloadFile);
+        aTag.download = DownloadFile;
         document.body.appendChild(aTag);
         aTag.click();
-        downloadBtn.innerText = "Téléchargement Photo " + PhotoFile + " ...";
+		downloadBtn.innerText = "Téléchargement Photo " + PhotoFile + " OK";
         URL.revokeObjectURL(tempUrl);
         aTag.remove();
     }).catch(() => {

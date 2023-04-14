@@ -66,9 +66,9 @@
 			echo '</form>';
 			echo '<a href="'. $display_Exit_Photo .'">      <img src="' . $image_rep .'fleche-retour-rouge.png" title="Afficher album" alt="Afficher album"></a>';
 			echo '</div>';				
-		?>			  			
 
-		<script src="DownloadFile.js"></script>
+			echo '<script src = "' . $Scripts_rep . 'DownloadFile.js"></script>';
+		?>			  			
 
 	</section>
 
