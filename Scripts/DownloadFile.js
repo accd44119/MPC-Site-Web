@@ -14,7 +14,6 @@ function fetchDirectory(urlListeTxt, UrlPhotosRep) {
 		console.log("fetchDirectory fetch ok. Reponse ListePhotosTexte = ", ListePhotosTexte);
 		downloadBtn.innerText = "Création de la liste des photos de l'Album...";
 		const ListePhotoArray = ListePhotosTexte.split("\r\n");
-		let NomFichierTxt = ListePhotoArray.shift(); // Supression du nom du fichier txt de la tete de la liste
 		let Vide = ListePhotoArray.pop(); // supression du dernier element de la liste (vide);
 		let UrlRepPhotos = UrlPhotosRep;
 		console.log("fetchDirectory UrlPhotosRep = ", UrlPhotosRep);

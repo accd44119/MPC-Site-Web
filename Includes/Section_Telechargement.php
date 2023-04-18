@@ -41,8 +41,8 @@
 			echo '<script language="Javascript">'; 
 			echo ' const UrlPhotos = "' . $UrlPhotos . '";';
 			echo ' const UrlListe = "' . $UrlListe .'";';
+			include( $Scripts_rep . 'DownloadFile.js');
 			echo '</script>';
-			echo '<script src = "' . $Scripts_rep . 'DownloadFile.js"></script>';
 
 		?>			  			
 
