@@ -1,27 +1,25 @@
-console.log("Récupération pointeur sur input et button");
-const fileInput = document.querySelector("input"),
-downloadBtn = document.querySelector("button");
+console.log("Récupération pointeur sur bouton telecharger");
+downloadBtn = document.getElementById("Bouton_Telecharger");
 
 downloadBtn.addEventListener("click", e => {
     e.preventDefault();
     console.log("Event click button listener");
     downloadBtn.innerText = "Préparation liste photos...";
-    fetchDirectory(fileInput.value);
-    //fetchFile(fileInput.value,"fichier texte");
+    fetchDirectory(UrlListe, UrlPhotos);
 });
 
-function fetchDirectory(url) {
-    console.log("fetchDirectory url=",url);
-    fetch(url).then(res => res.text()).then( ListePhotosTexte => {
+function fetchDirectory(urlListeTxt, UrlPhotosRep) {
+    console.log("fetchDirectory urlListeTxt=",urlListeTxt);
+    fetch(urlListeTxt).then(res => res.text()).then( ListePhotosTexte => {
 		console.log("fetchDirectory fetch ok. Reponse ListePhotosTexte = ", ListePhotosTexte);
 		downloadBtn.innerText = "Création de la liste des photos de l'Album...";
 		const ListePhotoArray = ListePhotosTexte.split("\r\n");
 		let NomFichierTxt = ListePhotoArray.shift(); // Supression du nom du fichier txt de la tete de la liste
 		let Vide = ListePhotoArray.pop(); // supression du dernier element de la liste (vide);
-		let UrlRepPhotos = url.replace(NomFichierTxt,'');
-		console.log("fetchDirectory UrlRepPhotos = ", UrlRepPhotos);
+		let UrlRepPhotos = UrlPhotosRep;
+		console.log("fetchDirectory UrlPhotosRep = ", UrlPhotosRep);
 		for (let Photo of ListePhotoArray){
-			let UrlPhoto = UrlRepPhotos + Photo;
+			let UrlPhoto = UrlPhotosRep + '/' + Photo;
 			console.log("fetchDirectory UrlPhoto = ", UrlPhoto);
 			fetchFile(UrlPhoto,Photo);
 		}
@@ -46,7 +44,7 @@ function fetchFile(urlFile,PhotoFile) {
         aTag.download = DownloadFile;
         document.body.appendChild(aTag);
         aTag.click();
-		downloadBtn.innerText = "Téléchargement Photo " + PhotoFile + " OK";
+		downloadBtn.innerText = "Téléchargement Photos terminer OK";
         URL.revokeObjectURL(tempUrl);
         aTag.remove();
     }).catch(() => {

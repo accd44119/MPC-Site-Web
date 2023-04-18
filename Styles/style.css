@@ -430,49 +430,32 @@ img.img_Gauche {
     text-align: left;
 }
 
-/* definition pour le formulaire de telechargemet */
-.wrapper{
+/* definition pour la page telechargemet */
+#Telechargement{
   width: 100%;
   border-radius: 7px;
   padding: 20px 25px 15px;
 }
-form{
+.TelechargementBouton{
+  display:block;
   margin: 20px 0 27px;
-}
-form input{
-  width: 90%;
-  height: 60px;
-  outline: none;
-  padding: 0 17px;
-  font-size: 19px;
-  border-radius: 5px;
-  border: 1px solid #b3b2b2;
-  transition: 0.1s ease;
-}
-form input::placeholder{
-  color: #b3b2b2;
-}
-form input:focus{
-  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
-}
-form button{
-  width: 94%;
-  border: none;
-  opacity: 0.7;
+  width: 100%;
+  text-align:center;
+  /*border: none;*/
+  /*opacity: 0.7;*/
   outline: none;
   color: #fff;
-  cursor: pointer;
+  /*cursor: pointer;*/
   font-size: 17px;
   margin-top: 20px;
   padding: 15px 0;
   border-radius: 5px;
-  pointer-events: none;
+  /*pointer-events: none;*/
   background: #4285F4;
-  transition: opacity 0.15s ease;
-}
-form input:valid ~ button{
+  /*transition: opacity 0.15s ease;*/
   opacity: 1;
   pointer-events: auto;
+
 }
 
 /* Correctifs pour les vieilles versions d'Internet Explorer */
