@@ -16,12 +16,13 @@
 				$TelechargerAlbum = $Protect_rep . 'Telechargement.php?Annee='. $YearDisplay .'&Album='. $Album_No_Space  ;
 				$display_Exit_Photo = $ZonePublic_rep . 'albums.php?Annee=' . $YearDisplay  ;	
 				echo '<div id="Titre_Album">';
-				echo '<p> Cliquez sur une photo avec le bouton gauche de la souris pour passer en diaporama, l\'agrandir ou la télécharger </p>'; 
+				echo '<p> Cliquez sur une photo avec le bouton gauche de la souris pour passer en diaporama, agrandir ou télécharger la photo. </p>'; 
+				echo '<p> Cliquez sur l\'icon Télécharger pour télécharger l\'album complet. </p>'; 
 				echo '<H3> Année '. $YearDisplay . ' ' . $Album . '. </H3>'; 
-				//echo '<a href="'. $TelechargerAlbum .'"> TELECHARGEMENT Album    </a>';
 				echo '</div>';
 				echo '<div id="Exit_Album">';
-				echo '<a href="'. $display_Exit_Photo .'">      <img src="' . $image_rep .'fleche-retour-rouge.png" title="Afficher album" alt="Afficher album"></a>';
+				echo '<a href="'. $TelechargerAlbum .'">      <img src="' . $image_rep .'telecharger-96.png" title="Télécharger album" alt="Télécharger album"></a>';
+				echo '<a href="'. $display_Exit_Photo .'">    <img src="' . $image_rep .'fleche-retour-rouge.png" title="Retour Affichage liste albums" alt="Retour affichages albums"></a>';
 				echo '</div>';
 
 				echo '<div id="Affichage_Album">';

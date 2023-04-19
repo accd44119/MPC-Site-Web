@@ -268,9 +268,13 @@ aside img {
 }
 #Exit_Album img{
     width: 10%;
+	margin-left :20px;
+	margin-right :20px;
 }
 #Exit_Album a{
     width: 10%;
+	margin-left :20px;
+	margin-right :20px;
 }
 
 #Affichage_Album
@@ -431,6 +435,16 @@ img.img_Gauche {
 }
 
 /* definition pour la page telechargemet */
+#Titre_Telechargement {
+    display: block;
+	text-align: center;
+	width: 100%;
+}
+#Titre_Telechargement h2{
+	text-align: center;
+	width: 100%;
+}
+
 #Telechargement{
   width: 100%;
   border-radius: 7px;
@@ -438,8 +452,9 @@ img.img_Gauche {
 }
 .TelechargementBouton{
   display:block;
-  margin: 20px 0 27px;
-  width: 100%;
+  /*margin: 5px 0 5px;*/
+  width: 95%;
+  align-items:center;
   text-align:center;
   /*border: none;*/
   /*opacity: 0.7;*/
@@ -448,6 +463,7 @@ img.img_Gauche {
   /*cursor: pointer;*/
   font-size: 17px;
   margin-top: 20px;
+  margin-Bottom:20px;
   padding: 15px 0;
   border-radius: 5px;
   /*pointer-events: none;*/
